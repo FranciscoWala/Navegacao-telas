@@ -16,14 +16,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 
-@Preview(
-    showBackground = true,
-    showSystemUi = true
-)
 @Composable
-fun MenuScreen(modifier: Modifier = Modifier) {
+fun MenuScreen(modifier: Modifier = Modifier,
+               navController: NavController
+) {
     Box(
         modifier = modifier.
         fillMaxSize()
@@ -41,7 +40,9 @@ fun MenuScreen(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                onClick = { },
+                onClick = {
+                    navController.navigate("perfil/Francisco/24")
+                },
                 colors = ButtonDefaults.buttonColors(
                     Color.White
                 )
@@ -55,7 +56,9 @@ fun MenuScreen(modifier: Modifier = Modifier) {
                 )
             }
             Button(
-                onClick = { },
+                onClick = {
+                    navController.navigate("pedidos?numeroPedido=1234")
+                },
                 colors = ButtonDefaults.buttonColors(
                     Color.White
                 )
@@ -69,7 +72,9 @@ fun MenuScreen(modifier: Modifier = Modifier) {
                 )
             }
             Button(
-                onClick = { },
+                onClick = {
+                    navController.popBackStack()
+                },
                 colors = ButtonDefaults.buttonColors(
                     Color.White
                 )
